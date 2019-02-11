@@ -5,7 +5,7 @@ using UnityEngine;
 public class player : MonoBehaviour
 {
     public int velocity;
-    public int upDistance = 300;
+    public int upDistance = 150;
     // Start is called before the first frame update
     void Start()
     {
