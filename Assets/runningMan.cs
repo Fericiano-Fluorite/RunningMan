@@ -9,10 +9,12 @@ public class runningMan : MonoBehaviour
     public float jumpForce;
     public int groundMoveSpeed;
     public int airMoveSpeed;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(startSpeed, 0);
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -49,6 +51,14 @@ public class runningMan : MonoBehaviour
     {
         if(coll.transform.tag == "Finish") {
             SceneManager.LoadScene("success");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("NameTag")) 
+        {
+            anim.Play("MaleShooterPickUp");
         }
     }
 }

@@ -19,9 +19,9 @@ public class monsterBehavior : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(initialSpeed, 0);
         }
     }
-    void OnCollisionEnter2D(Collision2D coll)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (coll.transform.tag == "Player")
+        if (col.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("Fail");
         }
